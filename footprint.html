@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Streamy :: Home</title>
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css">
+    <link href="assets/vendors/aos/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/vendors/jquery/jquery.min.js"></script>
+    <script src="assets/js/loader.js"></script>
+</head>
+<body>
+    <div class="edica-loader"></div>
+    <header class="edica-header edica-landing-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="Streamy" width="180px"></a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="edicaMainNav">
+                  <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Home </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="footprint.html">Calculate Your Footprint<span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Demo</a>
+                      </li>
+
+                  </ul>
+                  <ul class="navbar-nav mt-2 mt-lg-0">
+                      <li class="nav-item">
+
+                      </li>
+                  </ul>
+                </div>
+            </nav>
+
+    <main>
+      <!-- CALCULATOR -->
+      <br><br>
+      <div class='container bg-info rounded-lg text-center' data-aos="fade-down">
+        <br>
+          <div class='watertitle'><h1>Water Usage Calculator</h1></div>
+          <br>
+          <h4>On average, how long are your showers?</h4>
+          <input id='longinput' type='number' placeholder='Time in minutes'/>
+          <br><br>
+          <h4>How many times a week do you shower?</h4>
+          <input id='weekinput' type='number' placeholder='Number of days'/>
+          <br/>
+          <br/>
+          <button class='btn-secondary rounded-sm' onclick='calcCO2()'>Calculate</button>
+        <br/>
+        <br/>
+      </div>
+      <br/>
+
+      <div id="hellostats" class='container text-center rounded-lg' data-aos="fade-up">
+          <br>
+          <h3>You use</h3> <h1 id='day' class='bg-success rounded-lg'></h1>
+          <h3>gallons of water <font style="color:red"><u>each shower.</u></font></h3>
+        <br/>
+          <h3>You use</h3>
+          <h1 id='week' class='bg-success rounded-lg'></h1>
+          <h3>gallons of water <font style="color:red"><u>a week.</u></font></h3>
+        <br/>
+         <h3>You could save</h3>
+          <h1 id='twoShorter' class='bg-success rounded-lg'></h1>
+          <h3>gallons of water a week by cutting your showers <font style="color:green"><u>2 minutes shorter.</u></font></h3>
+                  <br/>
+
+      </div>
+      <br><br><br><br><br><br>
+
+      <script>
+          var week = document.getElementById('week');
+          var twoShorter = document.getElementById("twoShorter");
+          var day = document.getElementById("day");
+          var longinput = document.getElementById('longinput');
+          var weekinput = document.getElementById('weekinput');
+          function calcCO2() {
+              var x = longinput.value;
+              var y = weekinput.value;
+              //var calc4 = (8.8/x)*1000;
+              var calc = x*2.5;
+              var calc2 = calc*y;
+              console.log(calc2)
+              var calc3 = (5*y)
+              calc = calc.toFixed(2);
+              calc2 = calc2.toFixed(2);
+              calc3 = calc3.toFixed(2);
+              //calc4 = calc4.toFixed(1);
+              console.log('calc is: ' + calc);
+              week.innerHTML = calc2;
+              day.innerHTML = calc;
+              twoShorter.innerHTML = calc3;
+              //res4.innerHTML = calc4;
+          }
+      </script>
+
+    <footer class="edica-footer">
+        <div class="container">
+          <h2>Download the app now!</h2>
+            <div class="row footer-widget-area" style="padding-bottom: 0px">
+              <div class="col-md-3">
+                <br>
+                <nav class="footer-social-links">
+                  <br>
+                  <a href="https://github.com/streamyapp/streamyapp.github.io"><i class="fab fa-github"></i></a>
+                  github
+                  <br><br>
+                  <a><i class="fab fa-stack-exchange"></i></a>
+                  help@streamyy.tech
+                </nav>
+              </div>
+            </div>
+            <div class="footer-bottom-content">
+                <nav class="nav footer-bottom-nav">
+                </nav>
+                <p class="mb-0">Streamy. <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/vendors/popper.js/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/vendors/aos/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 2000
+        });
+      </script>
+</body>
+</html>
